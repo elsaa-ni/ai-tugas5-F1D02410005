@@ -107,4 +107,4 @@ Aturan berasal dari dua dokumen kebencanaan resmi (Buku Saku BNPB 2018 dan Pedom
 
 ## 6. Penggunaan alat bantu AI
 
-Claude dipakai untuk membantu mencari sumber, menyusun kerangka aturan, dan menulis kode serta README. Aturan dan kode sudah saya baca dan uji sendiri.
+Claude dipakai untuk membantu menyusun kerangka aturan, dan menulis kode serta README.
