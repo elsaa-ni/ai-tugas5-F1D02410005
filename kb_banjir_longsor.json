@@ -1,0 +1,106 @@
+{
+  "judul": "Sistem Pakar Kesiapsiagaan Banjir dan Tanah Longsor",
+  "batas": "Aturan berasal dari dua dokumen kebencanaan resmi (Buku Saku BNPB dan Pedoman Sistem Peringatan Dini Berbasis Masyarakat) tentang banjir dan tanah longsor di Indonesia. Pemetaan gejala ke level Waspada, Siaga, dan Awas disusun penyusun dari definisi level pada pedoman, bukan angka resmi lembaga. Banjir bandang, gempa, dan bencana lain tidak dicakup. Hasilnya saran awal, bukan keputusan akhir; selalu ikuti peringatan resmi BPBD, BMKG, atau PVMBG setempat.",
+  "sumber": {
+    "S1": "Buku Saku Tanggap Tangkas Tangguh Menghadapi Bencana, Pusat Data Informasi dan Humas BNPB, Jakarta, cetakan ketiga November 2018, ISBN 978-602-5693-05-2, https://sma.kemdikbud.go.id/data/files/buku/Buku_Saku_Siaga_Bencana_bnpb_2019.pdf, diakses 15 Nov 2026",
+    "S2": "Pedoman Sistem Peringatan Dini Berbasis Masyarakat (Informasi Tentang Prosedur Peringatan Dini dan Prosedur Evakuasi Keadaan Darurat), Pemerintah Provinsi Lampung, tanpa tahun, https://ppid.lampungprov.go.id/dokumen/1665756716001.pdf, diakses 15 Nov 2026"
+  },
+  "kesimpulan": {
+    "Waspada banjir":  {"jenis": "banjir",  "tingkat": 1},
+    "Siaga banjir":    {"jenis": "banjir",  "tingkat": 2},
+    "Awas banjir":     {"jenis": "banjir",  "tingkat": 3},
+    "Waspada longsor": {"jenis": "longsor", "tingkat": 1},
+    "Siaga longsor":   {"jenis": "longsor", "tingkat": 2},
+    "Awas longsor":    {"jenis": "longsor", "tingkat": 3}
+  },
+  "saran": {
+    "Waspada banjir": "Batasi aktivitas di daerah rawan banjir dan mulai periksa perlengkapan (S2). Pantau informasi resmi BPBD, kenali jalur evakuasi, siapkan tas siaga bencana, dan ketahui cara mematikan listrik, air, dan gas (S1).",
+    "Siaga banjir": "Hentikan aktivitas di daerah rawan banjir dan bersiap evakuasi (S2). Amankan rumah, naikkan barang berharga ke tempat yang lebih tinggi, dan siapkan penampungan air bersih (S1).",
+    "Awas banjir": "Segera evakuasi ke tempat yang lebih tinggi (S1, S2). Matikan listrik bila ada instruksi petugas, jangan berjalan di arus air, dan jangan mengemudi di wilayah banjir (S1).",
+    "Waspada longsor": "Batasi aktivitas di sekitar lereng dan waspada saat curah hujan tinggi (S1, S2). Pastikan drainase di sekitar lereng tidak tersumbat (S1).",
+    "Siaga longsor": "Hentikan aktivitas di daerah rawan longsor dan siapkan evakuasi (S2). Pantau terus kondisi lereng dan informasi dari BPBD (S1).",
+    "Awas longsor": "Segera evakuasi menjauhi suara gemuruh atau arah datangnya longsoran, dan menuju zona evakuasi bila sirine berbunyi (S1). Hindari wilayah longsor karena tanah labil, dan antisipasi longsor susulan bila hujan turun lagi (S1)."
+  },
+  "aturan": [
+    {
+      "id": "R1",
+      "jika": ["hujan deras terus-menerus", "pasang laut tinggi disertai badai"],
+      "mode": "atau",
+      "maka": "gejala banjir",
+      "sumber": ["S2"]
+    },
+    {
+      "id": "R2",
+      "jika": ["drainase atau sungai tersumbat sampah atau sedimen", "hunian di bantaran sungai atau zona rawan banjir"],
+      "mode": "atau",
+      "maka": "kerentanan banjir tinggi",
+      "sumber": ["S1", "S2"]
+    },
+    {
+      "id": "R3",
+      "jika": ["gejala banjir", "kerentanan banjir tinggi"],
+      "mode": "dan",
+      "maka": "Waspada banjir",
+      "sumber": ["S2"]
+    },
+    {
+      "id": "R4",
+      "jika": ["Waspada banjir", "muka air sungai naik melampaui normal"],
+      "mode": "dan",
+      "maka": "Siaga banjir",
+      "sumber": ["S2"]
+    },
+    {
+      "id": "R5",
+      "jika": ["air sudah menggenangi permukiman", "ada sirine atau instruksi evakuasi dari BPBD"],
+      "mode": "atau",
+      "maka": "Awas banjir",
+      "sumber": ["S1", "S2"]
+    },
+    {
+      "id": "R6",
+      "jika": ["lereng terjal atau gundul", "ada pemotongan lereng atau getaran pada lereng"],
+      "mode": "atau",
+      "maka": "kerentanan longsor tinggi",
+      "sumber": ["S1", "S2"]
+    },
+    {
+      "id": "R7",
+      "jika": [
+        "retakan memanjang atau lengkung pada tanah atau bangunan",
+        "lereng atau dinding bangunan menggembung",
+        "rembesan atau mata air baru muncul di lereng",
+        "air rembesan tiba-tiba keruh bercampur lumpur",
+        "pohon atau tiang miring searah lereng"
+      ],
+      "mode": "atau",
+      "maka": "tanda awal longsor",
+      "sumber": ["S2"]
+    },
+    {
+      "id": "R8",
+      "jika": ["hujan deras terus-menerus", "kerentanan longsor tinggi"],
+      "mode": "dan",
+      "maka": "Waspada longsor",
+      "sumber": ["S1", "S2"]
+    },
+    {
+      "id": "R9",
+      "jika": ["tanda awal longsor", "hujan deras terus-menerus"],
+      "mode": "dan",
+      "maka": "Siaga longsor",
+      "sumber": ["S2"]
+    },
+    {
+      "id": "R10",
+      "jika": [
+        "terdengar suara gemuruh atau ledakan dari atas lereng",
+        "terjadi runtuhan atau aliran butiran tanah mendadak",
+        "ada sirine atau instruksi evakuasi dari BPBD"
+      ],
+      "mode": "atau",
+      "maka": "Awas longsor",
+      "sumber": ["S1", "S2"]
+    }
+  ]
+}
