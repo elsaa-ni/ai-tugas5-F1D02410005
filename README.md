@@ -17,7 +17,7 @@ Mode tanya jawab:
 python sistem_pakar.py
 ```
 
-Mode cepat (fakta "ya" langsung diberikan lewat nomor fakta atau nama fakta, dipakai untuk kasus uji):
+Mode cepat: jawaban "ya" langsung dituliskan lewat nomor fakta, tanpa tanya jawab. Mode ini saya pakai untuk menjalankan kasus uji.
 
 ```
 python sistem_pakar.py --fakta 1,3,5
@@ -49,7 +49,7 @@ Rantai aturan: R1 + R2 → R3 → R4 (banjir), R6 → R8 (longsor), dan R7 → R
 
 ### Daftar fakta
 
-Fakta awal ditanyakan ke pengguna sesuai urutan berikut. Pada mode `--fakta`, bisa memakai nomor atau nama fakta, dipisah koma.
+Program menanyakan fakta-fakta berikut satu per satu. Pada mode cepat, fakta bisa ditulis dengan nomornya atau nama lengkapnya, dipisah koma.
 
 | No | Fakta | Dipakai di |
 | -- | ----- | ---------- |
